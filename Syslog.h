@@ -15,16 +15,16 @@ public:
                   _server(server),
                   _port(port)
                   {}
-  void debug(char *message) { dolog(PRI_DEBUG, message); }
-  void info(char *message) { dolog(PRI_INFO, message); }
-  void warn(char *message) {dolog(PRI_WARNING, message); }
-  void error(char *message) {dolog(PRI_ERROR, message); }
+  void debug(char * device_id, char *message) { dolog(PRI_DEBUG, device_id,  message); }
+  void info(char * device_id, char *message) { dolog(PRI_INFO, device_id, message); }
+  void warn(char * device_id, char *message) {dolog(PRI_WARNING, device_id, message); }
+  void error(char * device_id, char *message) {dolog(PRI_ERROR, device_id, message); }
 private:
   const char *_host;
   const char *_app;
   const char *_server;
   const int _port;
-  void dolog(uint8_t pri, char *message);
+  void dolog(uint8_t pri, char* device_id, char *message);
   WiFiUDP udp;
 };
 #endif
